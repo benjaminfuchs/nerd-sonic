@@ -17,7 +17,7 @@ After=multi-user.target
  
 [Service]
 Type=simple
-User=nerdc
+User=nerdd
 ExecStart=/usr/bin/python3 /usr/local/sbin/nerd-dispenser.py
 
 [Install]

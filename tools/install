@@ -79,14 +79,14 @@ configure_system() {
   fi
 
   # create user
-  if ! grep -q "nerdc" /etc/passwd; then
-    echo -e "[INFO] create system-user nerdc:nerdc" 2>&1
-    groupadd -r nerdc
+  if ! grep -q "nerdd" /etc/passwd; then
+    echo -e "[INFO] create system-user nerdd:nerdd" 2>&1
+    groupadd -r nerdd
     adduser --disabled-login --gecos "" --system --group \
-                                        --home /var/lib/$PROJECT nerdc
-    usermod -a -G gpio,i2c,audio nerdc
+                                        --home /var/lib/$PROJECT nerdd
+    usermod -a -G gpio,i2c,audio nerdd
   fi
-  chown -R nerdc:nerdc /var/lib/$PROJECT
+  chown -R nerdd:nerdd /var/lib/$PROJECT
 }
 
 # --- activate service   ----------------------------------------------------

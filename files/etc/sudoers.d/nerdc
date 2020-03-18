@@ -1,1 +1,1 @@
-nerdc ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /bin/systemctl restart nerd-dispenser.service
+nerdd ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /bin/systemctl restart nerd-dispenser.service
