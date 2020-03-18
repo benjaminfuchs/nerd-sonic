@@ -21,7 +21,7 @@ import locale
 import configparser
 import threading
 
-from nclock import Settings
+from nclock import Settings, LedControllerThread, PumpControllerThread, SensorsControllerThread, TankController
 
 # --- helper class for logging to syslog/stderr   --------------------------
 
