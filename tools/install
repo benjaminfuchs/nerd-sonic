@@ -83,10 +83,10 @@ configure_system() {
     echo -e "[INFO] create system-user nerdc:nerdc" 2>&1
     groupadd -r nerdc
     adduser --disabled-login --gecos "" --system --group \
-                                        --home /var/lib/nerd-dispenser nerdc
+                                        --home /var/lib/$PROJECT nerdc
     usermod -a -G gpio,i2c,audio nerdc
   fi
-  chown -R nerdc:nerdc /var/lib/nerd-dispenser
+  chown -R nerdc:nerdc /var/lib/$PROJECT
 }
 
 # --- activate service   ----------------------------------------------------

@@ -1,0 +1,22 @@
+{
+    "_comment0": "Default settings for nerd-alarmclock",
+    "_comment1": "Don't change this file",
+    "_comment2": "change settings.json instead!",
+   
+    "state": "off",
+
+
+    "button.long_time": 3,
+    "button.status": "off",
+    
+    "milliliter": 2,
+
+    "sensor.status": "off",
+    "sensor.threshold": 5,
+
+    "tank.count": 0,
+    "tank.warning": 70,
+    "tank.empty": 80,
+    "tank.size": 1000,
+    "tank.status": "empty"
+}
