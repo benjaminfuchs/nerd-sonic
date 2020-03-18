@@ -21,7 +21,7 @@ import locale
 import configparser
 import threading
 
-import nclock
+from nclock import Settings
 
 # --- helper class for logging to syslog/stderr   --------------------------
 
