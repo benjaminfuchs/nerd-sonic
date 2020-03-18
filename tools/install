@@ -12,8 +12,6 @@
 PACKAGES="python-pip python-simplejson RPi.GPIO Adafruit-MotorHAT smbus"
 PROJECT="nerd-dispenser"
 
-LIRC_PIN="26"
-
 # --- basic packages   ------------------------------------------------------
 
 check_packages() {
@@ -81,23 +79,18 @@ configure_system() {
     echo "dtoverlay=i2c-rtc,ds3231" >> /boot/config.txt
   fi
 
-  if ! grep -q "^dtoverlay=lirc-rpi" /boot/config.txt ; then
-    echo -e "[INFO] configuring LIRC in /boot/config.txt" 2>&1
-    echo "dtoverlay=lirc-rpi,gpio_in_pin=$LIRC_PIN" >> /boot/config.txt
-  fi
-
   # update /etc/modules
   if ! grep -q "^i2c-dev" /etc/modules; then
     echo -e "[INFO] configuring /etc/modules" 2>&1
     echo "i2c-dev" >> /etc/modules
   fi
 
-  # add directory to python-path
-  if ! grep -q "/usr/local/lib/python2.7/site-packages" \
-                                 /etc/python2.7/sitecustomize.py; then
-    echo -e "[INFO] updating /etc/python2.7/sitecustomize.py"
-    echo -e "\nimport site\nsite.addsitedir('/usr/local/lib/python2.7/site-packages')" >> \
-                                               /etc/python2.7/sitecustomize.py
+  # add directory to python3-path
+  if ! grep -q "/usr/local/lib/python3.5/site-packages" \
+                                 /etc/python3.5/sitecustomize.py; then
+    echo -e "[INFO] updating /etc/python3.5/sitecustomize.py"
+    echo -e "\nimport site\nsite.addsitedir('/usr/local/lib/python3.5/site-packages')" >> \
+                                               /etc/python3.5/sitecustomize.py
   fi
 
   # create user

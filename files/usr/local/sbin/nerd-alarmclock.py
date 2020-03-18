@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # --------------------------------------------------------------------------
 # Script executed by systemd service nerd-dispenser.service
 #

@@ -174,7 +174,7 @@ Configuration
 Edit the file `/etc/nerd-dispenser.conf` to configure the systemd-service
 running the clock. In this file, you at least have to edit the section
 `[BOT]` and enter your own user-id and the id of your bot. The latter is
-provided by *BotFather*. To query your own id, edit the python-script
+provided by *BotFather*. To query your own id, edit the python3-script
 `tools/simplebot.py`, start it and exchange some messages with the bot.
 The script will print all messages and you will find your own id in the
 messages (extract the "from-id").
@@ -297,5 +297,5 @@ Hacking
 -------
 
 If you want to change the code and adapt it for your needs, you need some
-python know-how and you have to understand the structure of the program.
+python3know-how and you have to understand the structure of the program.
 For details read the [hacking-guide](doc/hacking.md "Hacking-Guide").
