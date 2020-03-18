@@ -14,23 +14,9 @@ PROJECT="nerd-dispenser"
 
 # --- basic packages   ------------------------------------------------------
 
-check_packages() {
-  local p
-  for p in "$@"; do
-    echo -en "Checking $p ... " >&2
-    dpkg -s "$p" 2>/dev/null | grep -q "Status.*ok" || return 0
-    echo "ok" >&2
-  done
-  return 1
-}
-
 install_packages() {
-  if [ -n "$PACKAGES" ] && check_packages $PACKAGES; then
-    echo -e "[INFO] installing additional packages" 2>&1
-    pip3 install $PACKAGES
-  fi
-
-  pip list 2>/dev/null | grep -q telepot || pip install telepot
+  echo -e "[INFO] installing additional packages" 2>&1
+  pip3 install $PACKAGES
 }
 
 # --- install specific files   ----------------------------------------------
