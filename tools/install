@@ -9,7 +9,7 @@
 #
 # --------------------------------------------------------------------------
 
-PACKAGES="python-pip python-simplejson RPi.GPIO adafruit-circuitpython-motorkit python-smbus"
+PACKAGES="simplejson RPi.GPIO adafruit-circuitpython-motorkit smbus"
 PROJECT="nerd-dispenser"
 
 # --- basic packages   ------------------------------------------------------
@@ -27,8 +27,7 @@ check_packages() {
 install_packages() {
   if [ -n "$PACKAGES" ] && check_packages $PACKAGES; then
     echo -e "[INFO] installing additional packages" 2>&1
-    apt-get update
-    apt-get -y install $PACKAGES
+    pip3 install $PACKAGES
   fi
 
   pip list 2>/dev/null | grep -q telepot || pip install telepot
