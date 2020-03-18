@@ -9,7 +9,7 @@
 #
 # --------------------------------------------------------------------------
 
-PACKAGES="python-pip python-simplejson RPi.GPIO Adafruit-MotorHAT smbus"
+PACKAGES="python-pip python-simplejson RPi.GPIO adafruit-circuitpython-motorkit python-smbus"
 PROJECT="nerd-dispenser"
 
 # --- basic packages   ------------------------------------------------------
