@@ -18,7 +18,7 @@ import syslog
 import signal
 import time
 import locale
-import ConfigParser, threading
+import configparser, threading
 
 import nclock
 
@@ -118,7 +118,7 @@ def signal_handler(_signo, _stack_frame):
 locale.setlocale(locale.LC_ALL, '')
 
 # read configuration
-parser = ConfigParser.RawConfigParser()
+parser = configparser.Rawconfigparser()
 parser.optionxform = str
 parser.read('/etc/nerd-dispenser.conf')
 
