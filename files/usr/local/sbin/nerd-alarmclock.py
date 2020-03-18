@@ -1,17 +1,23 @@
 #!/usr/bin/python
 # --------------------------------------------------------------------------
-# Script executed by systemd service nerd-alarmclock.service
+# Script executed by systemd service nerd-dispenser.service
 #
-# Please edit /etc/nerd-alarmclock.conf to configure this script.
+# Please edit /etc/nerd-dispenser.conf to configure this script.
 #
 # Author: Bernhard Bablok
 # License: GPL3
 #
-# Website: https://github.com/bablokb/nerd-alarmclock
+# Website: https://github.com/bablokb/nerd-dispenser
 #
 # --------------------------------------------------------------------------
 
-import select, os, sys, syslog, signal, time, locale
+import select
+import os
+import sys
+import syslog
+import signal
+import time
+import locale
 import ConfigParser, threading
 
 import nclock
@@ -37,7 +43,7 @@ class Msg(object):
       self._syslog = True
 
     if self._syslog:
-      syslog.openlog("nerd-alarmclock")
+      syslog.openlog("nerd-dispenser")
 
   def msg(self,text):
     """ write message to the system log """
@@ -58,15 +64,11 @@ class Msg(object):
 def init(parser):
   """ Initialize objects """
 
-  settings     = nclock.Settings.Settings(parser)
+  settings     = Settings.Settings(parser)
   settings.log = Msg(settings.get_value('GLOBAL','debug',0))
   settings.load()
 
-  settings.leds    = nclock.LedController.LedController(settings)
-  if settings.get_value('DISPLAY','active','1') != '0':
-    settings.display = nclock.DisplayController.DisplayController(settings)
-  settings.sound   = nclock.SoundController.SoundController(settings)
-  settings.alarms  = nclock.AlarmController.AlarmController(settings)
+  settings.tank    = TankController.TankController(settings)
   return settings
 
 # --- start all threads   --------------------------------------------------
@@ -76,28 +78,14 @@ def start_threads(settings):
 
   threads = []
 
-  timeKeeperThread = nclock.TimeKeeperThread.TimeKeeperThread(settings)
-  threads.append(timeKeeperThread)
+  ledControllerThread = LedControllerThread.LedControllerThread(settings)
+  threads.append(ledControllerThread)
 
-  if settings.get_value('WEB','active','1') != '0':
-    webThread = nclock.WebThread.WebThread(settings)
-    threads.append(webThread)
+  pumpControllerThread = PumpControllerThread.PumpControllerThread(settings)
+  threads.append(pumpControllerThread)
 
-  keyboardThread = nclock.KeyboardThread.KeyboardThread(settings)
-  threads.append(keyboardThread)
-
-  ek1Thread = nclock.EncoderKnobThread.EncoderKnobThread(1,settings)
-  ek2Thread = nclock.EncoderKnobThread.EncoderKnobThread(2,settings)
-  threads.append(ek1Thread)
-  threads.append(ek2Thread)
-
-  if settings.get_value('BOT','active','0') != '0':
-    botThread = nclock.BotThread.BotThread(settings)
-    threads.append(botThread)
-
-  if settings.get_value('LIRC','active','0') != '0':
-    lircThread = nclock.LircThread.LircThread(settings)
-    threads.append(lircThread)
+  sensorsControllerThread = SensorsControllerThread.SensorsControllerThread(settings)
+  threads.append(sensorsControllerThread)
 
   map(threading.Thread.start, threads)
   return threads
@@ -132,7 +120,7 @@ locale.setlocale(locale.LC_ALL, '')
 # read configuration
 parser = ConfigParser.RawConfigParser()
 parser.optionxform = str
-parser.read('/etc/nerd-alarmclock.conf')
+parser.read('/etc/nerd-dispenser.conf')
 
 # initialize system
 settings = init(parser)
