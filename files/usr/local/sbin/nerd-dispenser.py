@@ -92,7 +92,8 @@ def start_threads(settings):
         settings)
     threads.append(sensorsControllerThread)
 
-    map(threading.Thread.start, threads)
+    for thread in threads:
+      thread.start()
     return threads
 
 # --- stop all threads   ---------------------------------------------------
