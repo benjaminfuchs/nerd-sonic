@@ -142,4 +142,5 @@ threads = start_threads(settings)
 
 # --- main loop   ---------------------------------------------------------
 
-signal.pause()
+while True:
+  time.sleep(1)
