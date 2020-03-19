@@ -88,9 +88,9 @@ def start_threads(settings):
     pumpControllerThread = PumpControllerThread.PumpControllerThread(settings)
     threads.append(pumpControllerThread)
 
-    # sensorsControllerThread = SensorsControllerThread.SensorsControllerThread(
-    #     settings)
-    # threads.append(sensorsControllerThread)
+    sensorsControllerThread = SensorsControllerThread.SensorsControllerThread(
+        settings)
+    threads.append(sensorsControllerThread)
 
     map(threading.Thread.start, threads)
     return threads
