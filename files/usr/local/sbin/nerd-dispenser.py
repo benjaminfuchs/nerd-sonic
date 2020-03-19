@@ -21,7 +21,7 @@ import locale
 import configparser
 import threading
 
-from nclock import Settings, LedControllerThread, PumpControllerThread, SensorsControllerThread, TankController
+from nclock import Settings, LedControllerThread, PumpControllerThread, SensorsControllerThread, TankControllerThread
 
 # --- helper class for logging to syslog/stderr   --------------------------
 
@@ -72,7 +72,6 @@ def init(parser):
     settings.load()
 
     settings.set('state', 'starting')
-    settings.tank = TankController.TankController(settings)
     return settings
 
 # --- start all threads   --------------------------------------------------
@@ -92,6 +91,9 @@ def start_threads(settings):
     sensorsControllerThread = SensorsControllerThread.SensorsControllerThread(
         settings)
     threads.append(sensorsControllerThread)
+
+    tankControllerThread = TankControllerThread.TankController(settings)
+    threads.append(tankControllerThread)
 
     for thread in threads:
       thread.start()
