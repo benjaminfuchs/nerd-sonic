@@ -16,7 +16,7 @@ PROJECT="nerd-dispenser"
 
 install_packages() {
   echo -e "[INFO] installing additional packages" 2>&1
-  pip3 install $PACKAGES
+  #pip3 install $PACKAGES
 }
 
 # --- install specific files   ----------------------------------------------
