@@ -13,8 +13,8 @@
     "sensor.threshold": 5,
 
     "tank.count": 0,
-    "tank.warning": 70,
-    "tank.empty": 80,
+    "tank.warning": 0.7,
+    "tank.empty": 0.8,
     "tank.size": 10,
     "tank.status": "empty"
 }
