@@ -71,6 +71,7 @@ def init(parser):
     settings.log = Msg(settings.get_value('GLOBAL', 'debug', 0))
     settings.load()
 
+    settings.set('state', 'starting')
     settings.tank = TankController.TankController(settings)
     return settings
 
