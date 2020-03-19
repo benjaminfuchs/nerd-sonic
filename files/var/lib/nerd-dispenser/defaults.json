@@ -10,7 +10,7 @@
     "milliliter": 2,
 
     "sensor.status": "off",
-    "sensor.threshold": 5,
+    "sensor.threshold": 0.1,
 
     "tank.count": 0,
     "tank.warning": 0.7,
