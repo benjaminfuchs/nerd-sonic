@@ -106,7 +106,8 @@ def stop_threads(settings, threads):
     settings.stop_event.set()
 
     # wait for threads to terminate
-    map(threading.Thread.join, threads)
+    for thread in threads:
+      thread.join()
 
 # --------------------------------------------------------------------------
 
