@@ -92,11 +92,11 @@ def start_threads(settings):
         settings)
     threads.append(sensorsControllerThread)
 
-    tankControllerThread = TankControllerThread.TankController(settings)
+    tankControllerThread = TankControllerThread.TankControllerThread(settings)
     threads.append(tankControllerThread)
 
     for thread in threads:
-      thread.start()
+        thread.start()
     return threads
 
 # --- stop all threads   ---------------------------------------------------
@@ -110,7 +110,7 @@ def stop_threads(settings, threads):
 
     # wait for threads to terminate
     for thread in threads:
-      thread.join()
+        thread.join()
 
 # --------------------------------------------------------------------------
 
@@ -148,4 +148,4 @@ threads = start_threads(settings)
 # --- main loop   ---------------------------------------------------------
 
 while True:
-  time.sleep(1)
+    time.sleep(1)
