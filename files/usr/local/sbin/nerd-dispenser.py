@@ -52,8 +52,7 @@ class Msg(object):
         if self._debug == '1':
             with self._lock:
                 if self._syslog:
-                    syslog.syslog(syslog.LOG_ALERT, text)
-                    sys.stdout.flush() 
+                    syslog.syslog(text)
                 else:
                     sys.stderr.write(text)
                     sys.stderr.write("\n")
