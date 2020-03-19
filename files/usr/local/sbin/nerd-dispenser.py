@@ -82,11 +82,11 @@ def start_threads(settings):
 
     threads = []
 
-    # ledControllerThread = LedControllerThread.LedControllerThread(settings)
-    # threads.append(ledControllerThread)
+    ledControllerThread = LedControllerThread.LedControllerThread(settings)
+    threads.append(ledControllerThread)
 
-    # pumpControllerThread = PumpControllerThread.PumpControllerThread(settings)
-    # threads.append(pumpControllerThread)
+    pumpControllerThread = PumpControllerThread.PumpControllerThread(settings)
+    threads.append(pumpControllerThread)
 
     # sensorsControllerThread = SensorsControllerThread.SensorsControllerThread(
     #     settings)
