@@ -53,6 +53,7 @@ class Msg(object):
             with self._lock:
                 if self._syslog:
                     syslog.syslog(text)
+                    sys.stdout.flush() 
                 else:
                     sys.stderr.write(text)
                     sys.stderr.write("\n")
