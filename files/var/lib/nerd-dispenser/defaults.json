@@ -15,6 +15,6 @@
     "tank.count": 0,
     "tank.warning": 70,
     "tank.empty": 80,
-    "tank.size": 1000,
+    "tank.size": 10,
     "tank.status": "empty"
 }
