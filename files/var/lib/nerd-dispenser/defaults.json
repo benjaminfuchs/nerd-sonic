@@ -7,7 +7,7 @@
 
     "button.status": "off",
     
-    "milliliter": 1,
+    "milliliter": 2,
 
     "sensor.status": "off",
     "sensor.threshold": 0.1,
