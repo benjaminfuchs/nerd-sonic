@@ -11,10 +11,11 @@
 
     "sensor.status": "off",
     "sensor.threshold": 0.1,
+    "sensor.wait" : 5,
 
     "tank.count": 0,
     "tank.warning": 0.7,
     "tank.empty": 0.8,
-    "tank.size": 10,
+    "tank.size": 500,
     "tank.status": "empty"
 }
