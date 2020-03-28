@@ -84,7 +84,7 @@ configure_system() {
     groupadd -r nerdd
     adduser --disabled-login --gecos "" --system --group \
                                         --home /var/lib/$PROJECT nerdd
-    usermod -a -G gpio,i2c,audio nerdd
+    usermod -a -G gpio,i2c,audio,spi nerdd
   fi
   chown -R nerdd:nerdd /var/lib/$PROJECT
 }
