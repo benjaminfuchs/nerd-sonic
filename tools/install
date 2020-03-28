@@ -5,18 +5,18 @@
 # Author: Bernhard Bablok
 # License: GPL3
 #
-# Website: https://github.com/bablokb/nerd-dispenser
+# Website: https://github.com/bablokb/nerd-sonic
 #
 # --------------------------------------------------------------------------
 
-PACKAGES="simplejson RPi.GPIO Adafruit_MotorHAT smbus"
-PROJECT="nerd-dispenser"
+PACKAGES="simplejson RPi.GPIO Pillow matplotlib tinydb bottle"
+PROJECT="nerd-sonic"
 
 # --- basic packages   ------------------------------------------------------
 
 install_packages() {
   echo -e "[INFO] installing additional packages" 2>&1
-  # pip3 install $PACKAGES
+  pip3 install $PACKAGES
 }
 
 # --- install specific files   ----------------------------------------------

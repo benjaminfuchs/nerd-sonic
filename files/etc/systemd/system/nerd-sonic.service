@@ -1,13 +1,13 @@
 # --------------------------------------------------------------------------
-# Systemd service Definition for nerd-dispenser.service.
+# Systemd service Definition for nerd-sonic.service.
 #
-# The service just starts the script /usr/local/sbin/nerd-dispenser.py
-# Please edit /etc/nerd-dispenser.conf to configure the script.
+# The service just starts the script /usr/local/sbin/nerd-sonic.py
+# Please edit /etc/nerd-sonic.conf to configure the script.
 #
 # Author: Bernhard Bablok
 # License: GPL3
 #
-# Website: https://github.com/bablokb/nerd-dispenser
+# Website: https://github.com/bablokb/nerd-sonic
 #
 # --------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ After=multi-user.target
 [Service]
 Type=simple
 User=nerdd
-ExecStart=/usr/bin/python3 /usr/local/sbin/nerd-dispenser.py
+ExecStart=/usr/bin/python3 /usr/local/sbin/nerd-sonic.py
 
 [Install]
 WantedBy=multi-user.target

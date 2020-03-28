@@ -1,4 +1,4 @@
-nerd-dispenser
+nerd-sonic
 ===============
 
 A Pi-Zero W based alarm-clock for nerds with many unique functions:
@@ -134,8 +134,8 @@ with Stretch though).
 
 Use the following commands to install the software:
 
-    git clone https://github.com/bablokb/nerd-dispenser.git
-    cd nerd-dispenser
+    git clone https://github.com/bablokb/nerd-sonic.git
+    cd nerd-sonic
     sudo tools/install
     cd ..
     git clone https://github.com/bablokb/gpio-poll-service.git
@@ -157,13 +157,13 @@ Upgrade
 Before uprading an existing system, you should stop the relevant system
 services:
 
-    sudo systemctl stop nerd-dispenser.service
+    sudo systemctl stop nerd-sonic.service
     sudo systemctl stop gpio-poll.service
 
 Then run a normal install like documented above. After installation, you
-should update you existing `/etc/nerd-dispenser.conf` from the file
-`/etc/nerd-dispenser.conf.nerd-dispenser` and the file `/etc/gpio-poll.conf`
-from the file `/etc/gpio-poll.conf.nerd-dispenser`.
+should update you existing `/etc/nerd-sonic.conf` from the file
+`/etc/nerd-sonic.conf.nerd-sonic` and the file `/etc/gpio-poll.conf`
+from the file `/etc/gpio-poll.conf.nerd-sonic`.
 
 
 Configuration
@@ -171,7 +171,7 @@ Configuration
 
 ### System services ###
 
-Edit the file `/etc/nerd-dispenser.conf` to configure the systemd-service
+Edit the file `/etc/nerd-sonic.conf` to configure the systemd-service
 running the clock. In this file, you at least have to edit the section
 `[BOT]` and enter your own user-id and the id of your bot. The latter is
 provided by *BotFather*. To query your own id, edit the python3-script
@@ -180,7 +180,7 @@ The script will print all messages and you will find your own id in the
 messages (extract the "from-id").
 
 You should also make sure that the GPIOs configured in `/etc/gpio-poll.conf`
-match the GPIOs in the section `[GPIO]` of `/etc/nerd-dispenser.conf`.
+match the GPIOs in the section `[GPIO]` of `/etc/nerd-sonic.conf`.
 
 
 ### Bot configuration ###
@@ -212,8 +212,8 @@ compared to Jessie). After configuration, you should have a lirc-configuration
 file which maps IR-pulses to (lirc-) keynames.
 
 Once you have the lirc keynames, you must map the keys using these keynames
-to logical functions of the nerd-dispenser. This is done in the section
-`[LIRC]` of `/etc/nerd-dispenser.conf`. The installation provides a sample
+to logical functions of the nerd-sonic. This is done in the section
+`[LIRC]` of `/etc/nerd-sonic.conf`. The installation provides a sample
 configuration, depending on your remote, you will want to change the
 mapping or add additional functions.
 
@@ -231,7 +231,7 @@ The install script will add a file `/etc/asound.conf` which is suitable for
 USB-audio. If you use the pHat-DAC, you should move the file
 `/etc/asound.conf.pHatDAC` to `/etc/asound.conf`. Note that the pHat-DAC
 uses GPIO19, so you have to reconfigure the default setup of the pins
-(edit the files `/etc/nerd-dispenser.conf`, `/usr/local/sbin/nerd-gpios.sh`
+(edit the files `/etc/nerd-sonic.conf`, `/usr/local/sbin/nerd-gpios.sh`
 and `/etc/gpio-poll.conf` and reassign the pin for the encoder-knob).
 
 If you want to use Bluetooth-audio, you should head over to the project
@@ -242,7 +242,7 @@ the instructions.
 ### Adding sounds ###
 
 To play music or sounds during an alarm, you have to add the files
-to the directory `/var/lib/nerd-dispenser/sounds`. The nerd-dispenser uses
+to the directory `/var/lib/nerd-sonic/sounds`. The nerd-sonic uses
 the program `mpg123` to play the files, so all formats supported by mpg123
 should be fine. If you want to play an internet-radio station, add the url
 to a file with the extension `m3u` (playlist). Note that mpg123 does not
@@ -250,9 +250,9 @@ support nested playlists.
 
 ### Adding Radio channel-list ###
 
-Since version v2, the nerd-dispenser supports playing internet-radio.
+Since version v2, the nerd-sonic supports playing internet-radio.
 The distribution supplies some sample channel-lists in the directory
-`/var/lib/nerd-dispenser/channels`. Add your own lists using the
+`/var/lib/nerd-sonic/channels`. Add your own lists using the
 format in the samples.
 
 Pressing one of the encoder-knobs will cycle through the channel lists,
@@ -262,10 +262,10 @@ few seconds. The same holds true for changing channels.
 
 ### Manual configuration ###
 
-Program defaults are in the file `/var/lib/nerd-dispenser/defaults.json`.
+Program defaults are in the file `/var/lib/nerd-sonic/defaults.json`.
 You should not edit this file directly (unless you know what you are
 doing). After first run, the settings are saved in
-`/var/lib/nerd-dispenser/settings.json`. You can edit this file
+`/var/lib/nerd-sonic/settings.json`. You can edit this file
 manually, but you should make sure the clock-service is stopped before
 doing so (it will be otherwise overwritten).
 
