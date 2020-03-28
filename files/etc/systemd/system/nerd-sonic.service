@@ -14,11 +14,11 @@
 [Unit]
 Description=Master service for the dispenser
 After=multi-user.target
- 
+
 [Service]
 Type=simple
 User=nerdd
-ExecStart=/usr/bin/python3 /usr/local/sbin/nerd-sonic.py
+ExecStart=/usr/bin/python3.5 /usr/local/sbin/nerd-sonic.py
 
 [Install]
 WantedBy=multi-user.target
