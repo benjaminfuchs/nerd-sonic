@@ -19,6 +19,7 @@ import locale
 import configparser
 import threading
 
+sys.path.append(os.path.abspath('/usr/local/lib/python3.5/site-packages'))
 from nsonic import Settings, WebThread, Database, DisplayController
 
 # --- helper class for logging to syslog/stderr   --------------------------
