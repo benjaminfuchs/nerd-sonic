@@ -16,7 +16,7 @@ PROJECT="nerd-sonic"
 
 install_packages() {
   echo -e "[INFO] installing additional packages" 2>&1
-  pip3 install $PACKAGES
+  python3.5 -m pip install $PACKAGES
 }
 
 # --- install specific files   ----------------------------------------------
