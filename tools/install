@@ -9,7 +9,7 @@
 #
 # --------------------------------------------------------------------------
 
-PACKAGES="simplejson RPi.GPIO Pillow matplotlib tinydb bottle simplejson spidev netifaces"
+PACKAGES="simplejson RPi.GPIO Pillow matplotlib tinydb bottle simplejson spidev netifaces distro"
 PROJECT="nerd-sonic"
 
 # --- basic packages   ------------------------------------------------------
