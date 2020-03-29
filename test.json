@@ -2,52 +2,52 @@
   "_default": {
     "1": {
       "name": "sensors.tank.value",
-      "value": "5",
+      "value": 5,
       "time": 1585488867.7135227
     },
     "2": {
       "name": "sensors.tank.value",
-      "value": "4",
+      "value": 4,
       "time": 1585388867.7135227
     },
     "3": {
       "name": "sensors.tank.value",
-      "value": "3",
+      "value": 3,
       "time": 1585288867.7135227
     },
     "4": {
       "name": "sensors.tank.value",
-      "value": "2",
+      "value": 2,
       "time": 1585188867.7135227
     },
     "5": {
       "name": "sensors.tank.value",
-      "value": "1",
+      "value": 1,
       "time": 1585088867.7135227
     },
     "6": {
       "name": "sensors.tank.value",
-      "value": "5",
+      "value": 5,
       "time": 1584988867.7135227
     },
     "7": {
       "name": "sensors.tank.value",
-      "value": "4",
+      "value": 4,
       "time": 1584888867.7135227
     },
     "8": {
       "name": "sensors.tank.value",
-      "value": "3",
+      "value": 3,
       "time": 1584788867.7135227
     },
     "9": {
       "name": "sensors.tank.value",
-      "value": "2",
+      "value": 2,
       "time": 15846488867.7135227
     },
     "10": {
       "name": "sensors.tank.value",
-      "value": "1",
+      "value": 1,
       "time": 1584588867.7135227
     }
   }
