@@ -21,7 +21,7 @@ import threading
 
 sys.path.append(os.path.abspath('/usr/local/lib/python3.5/site-packages'))
 sys.path.append(os.path.abspath('/usr/local/lib/python3.5/site-packages/nsonic/ext'))
-from nsonic import Settings, WebThread, Database, DisplayController
+from nsonic import Settings, WebThread, Database, SensorsControllerThread, DisplayStateThread
 
 # --- helper class for logging to syslog/stderr   --------------------------
 
@@ -100,8 +100,6 @@ class Main():
         self._settings.load()
 
         self._settings.database = Database.Database(self._settings)
-        self._settings.dispay = DisplayController.DisplayController(
-            self._settings)
 
     @staticmethod
     def _start_threads(settings):
@@ -111,6 +109,12 @@ class Main():
 
         web_thread = WebThread.WebThread(settings)
         threads.append(web_thread)
+
+        sensors_thread = SensorsControllerThread.SensorsControllerThread(settings)
+        threads.append(sensors_thread)
+
+        display_thread = DisplayStateThread.DisplayStateThread(settings)
+        threads.append(display_thread)
 
         for thread in threads:
             thread.start()
@@ -134,5 +138,4 @@ class Main():
 
 
 if __name__ == "__main__":
-    main = Main()
-    main.run()
+    Main().run()
