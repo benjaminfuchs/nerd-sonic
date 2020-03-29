@@ -89,7 +89,7 @@ class Main():
         # read configuration
         parser = configparser.RawConfigParser()
         parser.optionxform = str
-        parser.read('/etc/nerd-alarmclock.conf')
+        parser.read('/etc/nerd-sonic.conf')
 
         return parser
 
